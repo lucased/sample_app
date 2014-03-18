@@ -13,9 +13,15 @@
 		<%= render 'layouts/nav' %>
 	</header>
 	<div class="container">
+		<%= render 'layouts/flash' %>
 		<%= yield %>
 		<%= render 'layouts/footer' %>
+		<%= debug(params) if Rails.env.development? %>
 	</div>
 
+	<script>
+		$(".alert").alert()
+	</script>
+	
 </body>
 </html>

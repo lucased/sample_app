@@ -1,4 +1,23 @@
 <% provide(:title, @title) %>
 
 <h1>Sign Up</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= bootstrap_form_for @user do |f| %>
+
+      <%= render 'shared/error_messages' %>
+
+      <%= f.text_field :name %>
+
+      <%= f.text_field :email %>
+
+      <%= f.password_field :password %>
+
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Create my account", class: "btn btn-lg btn-primary" %>
+
+    <% end %>
+  </div>
+</div>

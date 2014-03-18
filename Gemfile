@@ -4,6 +4,7 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'bootstrap-sass'
+gem 'bootstrap_form'
 gem 'pg', '0.15.1'
 gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -18,6 +19,7 @@ end
 group :test do
 	gem 'selenium-webdriver', '2.35.1'
 	gem 'capybara', '2.1.0'
+	gem 'factory_girl_rails', '~> 4.4.1'
 end
 
 # Use SCSS for stylesheets
