@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do 
+describe User do
 
 	before { @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")}
 
@@ -9,6 +9,7 @@ describe User do
 	it { should respond_to(:name) }
 	it { should respond_to(:email) }
 	it { should respond_to(:password_digest) }
+	it { should respond_to(:remember_token) }
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:authenticate) }
@@ -28,7 +29,7 @@ describe User do
 	describe "when name is to long" do
 		before { @user.name = "a" * 51 }
 		it { should_not be_valid }
-	end 
+	end
 
 	describe "when email address is invalid" do
 		it "should be invalid" do
@@ -61,7 +62,7 @@ describe User do
 	end
 
 	describe "when password is not present" do
-		before do 
+		before do
 			@user = User.new(name: "Example User", email: "user@example.com", password: "", password_confirmation: "")
 		end
 
@@ -103,6 +104,11 @@ describe User do
 			@user.save
 			expect(@user.reload.email).to eq mixed_case_email.downcase
 		end
+	end
+
+	describe "remember token" do
+		before { @user.save }
+		its(:remember_token) { should_not be_blank }
 	end
 
 
