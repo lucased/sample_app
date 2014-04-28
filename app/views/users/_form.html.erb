@@ -1,0 +1,19 @@
+<%= bootstrap_form_for @user do |f| %>
+
+  <%= render 'shared/error_messages' %>
+
+  <%= f.text_field :name %>
+
+  <%= f.text_field :email %>
+
+  <%= f.password_field :password %>
+
+  <%= f.password_field :password_confirmation %>
+
+  <% if @user.new_record? %>
+    <%= f.submit "Create my account", class: "btn btn-lg btn-primary" %>
+  <% else %>
+    <%= f.submit "Save Changes", class: "btn btn-lg btn-primary" %>
+  <% end %>
+
+<% end %>
